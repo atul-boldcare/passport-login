@@ -1,0 +1,26 @@
+### Getting a user
+GET http://localhost:3000/users
+
+### Registering user
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "username": "user2",
+    "password": "password"
+}
+
+### Login user
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "user2",
+    "password": "password"
+}
+
+### Protected Route
+GET http://localhost:3000/users/protected
+
+### Logout
+GET http://localhost:3000/users/logout
