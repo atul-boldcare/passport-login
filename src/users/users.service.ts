@@ -28,7 +28,7 @@ export class UsersService {
     password = await bcrypt.hash(password, salt);
     user = await this.userRepository.create({ username, password });
     console.log(user);
-    this.userRepository.persistAndFlush(user);
+    this.userRepository.persist(user);
     return user;
   }
 
@@ -43,9 +43,10 @@ export class UsersService {
       await this.register(email, password);
     } catch (err) {}
 
-    req.logIn(req.user, (err) => {
-      if (err) return err;
-    });
+    // req.logIn(req.user, (err) => {
+    //   if (err) return err;
+    // });
+
     return {
       message: 'User information from google',
       user: req.user,

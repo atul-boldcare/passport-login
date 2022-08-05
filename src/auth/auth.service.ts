@@ -6,6 +6,11 @@ import * as bcrypt from 'bcrypt';
 export class AuthService {
   constructor(private usersService: UsersService) {}
 
+  async findUser(username: string) {
+    const user = this.usersService.findOne(username);
+    return user;
+  }
+
   async validateUser(username: string, password: string) {
     const user = await this.usersService.findOne(username);
 

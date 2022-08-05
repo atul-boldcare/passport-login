@@ -34,7 +34,7 @@ export class UsersController {
     return { msg: 'logged in' };
   }
 
-  @UseGuards(AuthGuard('google'))
+  @UseGuards(GoogleAuthGuard)
   @Get('google')
   async googleAuth(@Request() req) {
     console.log(req);
